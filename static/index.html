@@ -105,7 +105,7 @@
 <main>
 
   <h1>Escuchando a las máquinas que no funcionan</h1>
-  <p class="sitio">Andrés González Anzures · Azure · México Central</p>
+  <p class="sitio">Andrés González Anzures AASSP</p>
 
   <!-- ======================================================= -->
   <!--  TEXTO DE LA OBRA — reemplaza estos párrafos            -->
@@ -127,7 +127,6 @@
   <hr>
 
   <div id="panel">
-    <p class="estado" id="estado">Presiona para que la máquina se escuche.</p>
     <audio id="reproductor" controls hidden></audio>
     <button id="boton">Generar grabación</button>
   </div>
@@ -186,7 +185,7 @@ async function escuchar(){
       }</span>`;
     datos.hidden = false;
 
-    boton.textContent = 'Escuchar otra vez';
+    boton.textContent = 'Generar otra grabación';
     audio.play().catch(() => {});   // si el navegador bloquea el autoplay, quedan los controles
   } catch (e) {
     estado.classList.remove('escuchando');
