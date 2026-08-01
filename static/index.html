@@ -111,11 +111,16 @@
   <!--  TEXTO DE LA OBRA — reemplaza estos párrafos            -->
   <!-- ======================================================= -->
   <section class="obra">
-    <p>[Primer párrafo. Qué es lo que se está oyendo: una máquina rentada en un centro de datos en México, midiéndose a sí misma durante dos segundos.]</p>
+    <p>Esta obra es un experimento de sonificación y representación auditiva de un data center de Microsoft ubicado en el área metropolitana de Querétaro, que inició operaciones el 7 de mayo de 2024 y cuyo nombre clave es Mexico Central (Zone 1). </p>
 
-    <p>[Segundo párrafo. Por qué "las máquinas que no funcionan" — el trabajo que no ocurre, el tiempo ocioso que igual se cobra, la infraestructura que se paga por existir y no por hacer.]</p>
+    <p>La ubicación de este data center es aún información confidencial, así como sus costos y el consumo energético real.  Como cualquier data center la seguridad y acceso al mismo son altamente restringidos. La obra busca a través de la sonificación de distintos parámetros, datos y mediciones hackear de alguna forma esa confidencialidad.</p>
 
-    <p>[Tercer párrafo. Qué significa que el canal de <em>steal</em> esté casi siempre en silencio.]</p>
+    <p>Para lo anterior creamos una máquina virtual que se ejecuta en el data center, y le pedimos datos que van desde las variaciones en el CPU, la latencia de la conexión, el computo compartido por otros servicios operando en el mismo data center, y la información que la misma empresa da acerca de la máquina virtual. Estos datos son usados como parámetros para crear un sonido dentro de la misma máquina virtual, que después es enviado a quien visite la página web que sirve como interfaz para comunicarse con el servidor. </p>
+
+    <p>El formato de la obra es efímero, puesto que solo se usan 3 pesos y la máquina virtual consumirá ese presupuesto y se destruirá después. Aproximadamente 3 pesos equivalen a tener prendida la máquina virtual dos horas, por lo que la pieza se activará ese tiempo y guardaremos todos los audios generados por quienes visiten la pieza y los guardaremos para su reproducción posterior, pero solo se podrán generar nuevos audios durante el tiempo que alcancen los 3 pesos. </p>
+
+    <p>La obra busca pensar un poco en cómo usar la maquinaría tecnológica del capitalismo (máquinas de guerra o máquinas descompuestas) como material para fines distintos de los que están pensadas y cómo infiltrarnos en esta maquinaría. Y también cómo visibilizar (o en este caso sonificar) la expansión de los data center, que anteriormente eran ubicados en países de primer mundo (por la velocidad del internet), pero que cada vez más son ubicados en distintas latitudes donde los recursos aún están disponibles.</p>
+
   </section>
   <!-- ======================================================= -->
 
@@ -124,7 +129,7 @@
   <div id="panel">
     <p class="estado" id="estado">Presiona para que la máquina se escuche.</p>
     <audio id="reproductor" controls hidden></audio>
-    <button id="boton">Escuchar</button>
+    <button id="boton">Generar grabación</button>
   </div>
 
   <div class="datos" id="datos" hidden></div>
@@ -144,7 +149,7 @@ async function escuchar(){
   boton.disabled = true;
   audio.hidden = true;
   datos.hidden = true;
-  estado.textContent = 'La máquina se está escuchando';
+  estado.textContent = 'Generando grabación';
   estado.classList.add('escuchando');
 
   try {
@@ -176,8 +181,8 @@ async function escuchar(){
       fila('utc',                 m.generado_utc) +
       `<span class="nota">${
         robado > 0
-          ? 'Durante la medición, el hipervisor entregó ciclos de esta máquina a otro inquilino. Esa sustracción suena una octava abajo.'
-          : 'Durante la medición nadie le quitó ciclos a esta máquina. El canal que registra esa sustracción permanece en silencio: no es una falla, es una lectura exacta.'
+          ? 'Durante la medición, e entregó ciclos de esta máquina a otro lugar.'
+          : 'Durante la medición nadie le quitó ciclos a esta máquina.'
       }</span>`;
     datos.hidden = false;
 
