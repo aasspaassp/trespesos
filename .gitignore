@@ -1,0 +1,40 @@
+# --- Audio / output generado ---
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.aiff
+*.aif
+output/
+audio_output/
+*.wav.tmp
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyc
+*.egg-info/
+.venv/
+venv/
+env/
+.Python
+*.log
+
+# --- Entornos y secretos ---
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# --- Docker ---
+*.pid
+
+# --- OS / editores ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- FastAPI / uvicorn ---
+*.sqlite3

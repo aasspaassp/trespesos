@@ -1,0 +1,140 @@
+{
+  "id": "20260801T022738Z-bdd0a307",
+  "archivo": "20260801T022738Z-bdd0a307.wav",
+  "generado_utc": "2026-08-01T02:27:38+00:00",
+  "duracion_audio_s": 30.0,
+  "ventana_medicion_s": 2.028,
+  "tiempo_sintesis_s": 0.099,
+  "mediciones": 20,
+  "nucleos": 22,
+  "cpu_busy_total_s": 4.0312,
+  "cpu_steal_total_s": 0.0,
+  "steal_audible": false,
+  "señal_plana": false,
+  "freq_hz": [
+    55.0,
+    200.0
+  ],
+  "lecturas": [
+    {
+      "busy": 0.15625,
+      "steal": 0.0,
+      "ctx_switches": 250,
+      "interrupts": 194
+    },
+    {
+      "busy": 0.203125,
+      "steal": 0.0,
+      "ctx_switches": 280,
+      "interrupts": 254
+    },
+    {
+      "busy": 0.453125,
+      "steal": 0.0,
+      "ctx_switches": 986,
+      "interrupts": 553
+    },
+    {
+      "busy": 0.515625,
+      "steal": 0.0,
+      "ctx_switches": 1226,
+      "interrupts": 849
+    },
+    {
+      "busy": 0.328125,
+      "steal": 0.0,
+      "ctx_switches": 680,
+      "interrupts": 524
+    },
+    {
+      "busy": 0.265625,
+      "steal": 0.0,
+      "ctx_switches": 748,
+      "interrupts": 251
+    },
+    {
+      "busy": 0.25,
+      "steal": 0.0,
+      "ctx_switches": 611,
+      "interrupts": 450
+    },
+    {
+      "busy": 0.34375,
+      "steal": 0.0,
+      "ctx_switches": 642,
+      "interrupts": 448
+    },
+    {
+      "busy": 0.1875,
+      "steal": 0.0,
+      "ctx_switches": 470,
+      "interrupts": 321
+    },
+    {
+      "busy": 0.09375,
+      "steal": 0.0,
+      "ctx_switches": 253,
+      "interrupts": 229
+    },
+    {
+      "busy": 0.09375,
+      "steal": 0.0,
+      "ctx_switches": 273,
+      "interrupts": 181
+    },
+    {
+      "busy": 0.109375,
+      "steal": 0.0,
+      "ctx_switches": 498,
+      "interrupts": 282
+    },
+    {
+      "busy": 0.265625,
+      "steal": 0.0,
+      "ctx_switches": 715,
+      "interrupts": 561
+    },
+    {
+      "busy": 0.265625,
+      "steal": 0.0,
+      "ctx_switches": 514,
+      "interrupts": 265
+    },
+    {
+      "busy": 0.0625,
+      "steal": 0.0,
+      "ctx_switches": 229,
+      "interrupts": 130
+    },
+    {
+      "busy": 0.09375,
+      "steal": 0.0,
+      "ctx_switches": 186,
+      "interrupts": 124
+    },
+    {
+      "busy": 0.125,
+      "steal": 0.0,
+      "ctx_switches": 800,
+      "interrupts": 148
+    },
+    {
+      "busy": 0.171875,
+      "steal": 0.0,
+      "ctx_switches": 631,
+      "interrupts": 199
+    },
+    {
+      "busy": 0.03125,
+      "steal": 0.0,
+      "ctx_switches": 119,
+      "interrupts": 81
+    },
+    {
+      "busy": 0.015625,
+      "steal": 0.0,
+      "ctx_switches": 312,
+      "interrupts": 158
+    }
+  ]
+}
