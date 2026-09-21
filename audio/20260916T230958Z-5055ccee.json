@@ -1,0 +1,15 @@
+{
+  "id": "20260916T230958Z-5055ccee",
+  "archivo": "20260916T230958Z-5055ccee.wav",
+  "generado_utc": "2026-09-16T23:09:58+00:00",
+  "duracion_audio_s": 5.0,
+  "metricas": {
+    "cpu_percentage": 3.8,
+    "cpu_frequencyMhz": 1400.0,
+    "disk_usage": 21.9,
+    "network_io": {
+      "sent": 28634,
+      "received": 13615
+    }
+  }
+}

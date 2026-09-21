@@ -1,0 +1,22 @@
+{
+  "id": "20260920T074618Z-4101a57d",
+  "archivo": "20260920T074618Z-4101a57d.wav",
+  "generado_utc": "2026-09-20T07:46:18+00:00",
+  "duracion_audio_s": 5.0,
+  "metricas": {
+    "cpu_percentage": 5.9,
+    "cpu_frequencyMhz": 1400.0,
+    "disk_usage": 21.8,
+    "network_io": {
+      "sent": 372,
+      "received": 411
+    }
+  },
+  "carbon_metrics": {
+    "dataType": "OverallSummaryData",
+    "latestMonthEmissions": 0.0466560806259338,
+    "previousMonthEmissions": 0.00583776870471495,
+    "monthOverMonthEmissionsChangeRatio": 6.99210845545342,
+    "monthlyEmissionsChangeValue": 0.0408183119212188
+  }
+}
