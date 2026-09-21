@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 
 from trespesos_audio import generar, SALIDA
 
+
 BASE = Path(__file__).resolve().parent
 ESTATICOS = BASE / "static"
 

@@ -8,6 +8,7 @@ import numpy as np
 
 from dataCollector import collectCPUmetrics
 from azureMetric import get_carbon_report
+from vmname import get_vm_metadata
 
 SALIDA = Path(__file__).resolve().parent / "audio"
 SR = 44100          # sample rate
@@ -47,6 +48,7 @@ def generar(directorio=SALIDA):
 
     cpumetrics = collectCPUmetrics()
     carbonmetrics = get_carbon_report("b4003998-9034-4e5d-86fa-1162338a0a4a", "2026-07-20", "2026-08-20")
+    vm_metadata = get_vm_metadata()
     pcm = sintetizar(cpumetrics, carbonmetrics)
 
     ident = f"{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}-{uuid.uuid4().hex[:8]}"
@@ -59,7 +61,8 @@ def generar(directorio=SALIDA):
         "generado_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "duracion_audio_s": round(len(pcm) / SR, 3),
         "metricas": cpumetrics,
-        "carbon_metrics": carbonmetrics["value"][0]
+        "carbon_metrics": carbonmetrics["value"][0],
+        "vm_metadata": vm_metadata
     }
     (directorio / f"{ident}.json").write_text(
         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"

@@ -7,7 +7,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY trespesos_audio.py main.py ./
+COPY *.py ./
 COPY static/ ./static/
 
 # aqui caen los .wav y los .json. Montalo como volumen para conservarlos.

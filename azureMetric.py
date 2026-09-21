@@ -1,7 +1,7 @@
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 import requests
 
-credential = AzureCliCredential()
+credential = DefaultAzureCredential()
 
 API_URL = (
     "https://management.azure.com/providers/Microsoft.Carbon/"
