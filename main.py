@@ -3,28 +3,28 @@ Escuchando a las maquinas que no funcionan
 API minima: sirve la pagina, genera el audio, entrega los .wav
 """
 
-import threading
+import json
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from trespesos_audio import generar, SALIDA
+from additiveSineWav import generar, SALIDA
 
-
+#SALIDA = Path(__file__).resolve().parent / "audio"
 BASE = Path(__file__).resolve().parent
 ESTATICOS = BASE / "static"
 
-# La medicion es una lectura del estado real de la maquina.
-# Si dos visitantes entran a la vez, cada loop contamina al otro:
-# uno estaria midiendo el trabajo que hace el otro al medir.
-_lock = threading.Lock()
-
-app = FastAPI(title="Escuchando a las maquinas que no funcionan", docs_url=None, redoc_url=None)
+app = FastAPI(
+    title="Escuchando a las maquinas que no funcionan",
+    docs_url=None,
+    redoc_url=None,
+)
 
 SALIDA.mkdir(parents=True, exist_ok=True)
 app.mount("/audio", StaticFiles(directory=str(SALIDA)), name="audio")
+app.mount("/static", StaticFiles(directory=str(ESTATICOS)), name="static")
 
 
 @app.get("/")
@@ -34,23 +34,41 @@ def inicio():
 
 @app.get("/generar")
 def generar_audio():
-    """
-    Definido como def (no async def): FastAPI lo corre en un threadpool,
-    asi los 2 s de time.sleep() no bloquean el event loop ni la carga de la pagina.
-    """
-    if not _lock.acquire(blocking=False):
-        raise HTTPException(
-            status_code=409,
-            detail="La maquina ya se esta escuchando a si misma. Intenta en unos segundos.",
-        )
     try:
         meta = generar()
-    finally:
-        _lock.release()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"No se pudo generar el audio: {e}")
 
     meta["url_audio"] = f"/audio/{meta['archivo']}"
-    meta.pop("lecturas", None)   # las 20 lecturas crudas quedan en el .json en disco
     return JSONResponse(meta)
+
+
+@app.get("/lista")
+def lista():
+    """
+    Los .wav se llaman 20260801T053712Z-e15af8c9.wav: como empiezan con la
+    fecha en formato ordenable, ordenar alfabetico es ordenar cronologico.
+    Cada .wav tiene su .json gemelo con el mismo id, asi que si existe
+    se lee de ahi la info para mostrarla junto al audio.
+    """
+    salida = []
+    for wav in sorted(SALIDA.glob("*.wav"), reverse=True):
+        item = {
+            "id": wav.stem,
+            "archivo": wav.name,
+            "url_audio": f"/audio/{wav.name}",
+        }
+        gemelo = wav.with_suffix(".json")
+        if gemelo.exists():
+            try:
+                meta = json.loads(gemelo.read_text(encoding="utf-8"))
+                item["generado_utc"] = meta.get("generado_utc")
+                item["duracion_audio_s"] = meta.get("duracion_audio_s")
+                item["metricas"] = meta.get("metricas")
+            except (json.JSONDecodeError, OSError):
+                pass
+        salida.append(item)
+    return JSONResponse(salida)
 
 
 @app.get("/salud")

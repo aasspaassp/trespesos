@@ -1,0 +1,145 @@
+{
+  "id": "20260921T064852Z-181f6b48",
+  "archivo": "20260921T064852Z-181f6b48.wav",
+  "generado_utc": "2026-09-21T06:48:52+00:00",
+  "duracion_audio_s": 5.0,
+  "metricas": {
+    "cpu_percentage": 1.0,
+    "cpu_frequencyMhz": 3153.8325,
+    "disk_usage": 12.0,
+    "network_io": {
+      "sent": 0,
+      "received": 0
+    }
+  },
+  "carbon_metrics": {
+    "dataType": "OverallSummaryData",
+    "latestMonthEmissions": 1.92717101044893,
+    "previousMonthEmissions": 0.268354226905469,
+    "monthOverMonthEmissionsChangeRatio": 6.18144458789464,
+    "monthlyEmissionsChangeValue": 1.65881678354346
+  },
+  "vm_metadata": {
+    "additionalCapabilities": {
+      "hibernationEnabled": "false"
+    },
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
+    "evictionPolicy": "",
+    "extendedLocation": {
+      "name": "",
+      "type": ""
+    },
+    "host": {
+      "id": ""
+    },
+    "hostGroup": {
+      "id": ""
+    },
+    "isHostCompatibilityLayerVm": "false",
+    "isVmInStandbyPool": "",
+    "licenseType": "",
+    "location": "MexicoCentral",
+    "name": "vm-instrumento",
+    "offer": "ubuntu-24_04-lts",
+    "osProfile": {
+      "adminUsername": "azureuser",
+      "computerName": "vm-instrumento",
+      "disablePasswordAuthentication": "true"
+    },
+    "osType": "Linux",
+    "physicalZone": "mexicoc-AZ01",
+    "placementGroupId": "",
+    "plan": {
+      "name": "",
+      "product": "",
+      "publisher": ""
+    },
+    "platformFaultDomain": "0",
+    "platformSubFaultDomain": "",
+    "platformUpdateDomain": "0",
+    "priority": "",
+    "provider": "Microsoft.Compute",
+    "publicKeys": [
+      {
+        "keyData": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZa9Ybaze310r2FsImdWONvbvare651fXILzMqXYrc3 tresPesos\n",
+        "path": "/home/azureuser/.ssh/authorized_keys"
+      }
+    ],
+    "publisher": "Canonical",
+    "resourceGroupName": "TRESPESOS",
+    "resourceId": "/subscriptions/b4003998-9034-4e5d-86fa-1162338a0a4a/resourceGroups/TRESPESOS/providers/Microsoft.Compute/virtualMachines/vm-instrumento",
+    "securityProfile": {
+      "encryptionAtHost": "false",
+      "secureBootEnabled": "false",
+      "securityType": "",
+      "virtualTpmEnabled": "false"
+    },
+    "sku": "server",
+    "storageProfile": {
+      "dataDisks": [],
+      "imageReference": {
+        "communityGalleryImageId": "",
+        "exactVersion": "24.04.202607140",
+        "id": "",
+        "offer": "ubuntu-24_04-lts",
+        "publisher": "Canonical",
+        "sharedGalleryImageId": "",
+        "sku": "server",
+        "version": "latest"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "createOption": "FromImage",
+        "diffDiskSettings": {
+          "option": ""
+        },
+        "diskSizeGB": "32",
+        "encryptionSettings": {
+          "diskEncryptionKey": {
+            "secretUrl": "",
+            "sourceVault": {
+              "id": ""
+            }
+          },
+          "enabled": "false",
+          "keyEncryptionKey": {
+            "keyUrl": "",
+            "sourceVault": {
+              "id": ""
+            }
+          }
+        },
+        "image": {
+          "uri": ""
+        },
+        "managedDisk": {
+          "id": "/subscriptions/b4003998-9034-4e5d-86fa-1162338a0a4a/resourceGroups/TRESPESOS/providers/Microsoft.Compute/disks/vm-instrumento_OsDisk_1_c7c4d077b60f4e81bfa4e512c569b511",
+          "storageAccountType": "StandardSSD_LRS"
+        },
+        "name": "vm-instrumento_OsDisk_1_c7c4d077b60f4e81bfa4e512c569b511",
+        "osType": "Linux",
+        "vhd": {
+          "uri": ""
+        },
+        "writeAcceleratorEnabled": "false"
+      },
+      "resourceDisk": {
+        "size": "0"
+      }
+    },
+    "subscriptionId": "b4003998-9034-4e5d-86fa-1162338a0a4a",
+    "systemFaultDomain": "",
+    "tags": "",
+    "tagsList": [],
+    "userData": "",
+    "version": "24.04.202607140",
+    "virtualMachineScaleSet": {
+      "id": ""
+    },
+    "vmId": "f24fd80e-fcf9-4091-9ab0-2eb0ff05dda1",
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D2als_v6",
+    "zone": "1"
+  }
+}
