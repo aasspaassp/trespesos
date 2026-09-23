@@ -5,7 +5,6 @@ import requests
 credential = DefaultAzureCredential()
 # credential = AzureCliCredential()
 
-
 API_URL = (
     "https://management.azure.com/providers/Microsoft.Carbon/"
     "carbonEmissionReports?api-version=2025-04-01"
