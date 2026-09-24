@@ -29,7 +29,7 @@ def sintetizar(metrics, carbon):
 
 
     # is audio supposer to be an array?
-    audio = audio / np.max(np.abs(audio))
+    audio = np.tanh(3 * audio / np.max(np.abs(audio)))
 
     fade_samples = int(SR * 0.02)
     audio[-fade_samples:] *= np.linspace(1, 0, fade_samples)
