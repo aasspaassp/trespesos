@@ -18,7 +18,7 @@ def collectCPUmetrics():
     print(cpuProc)
     networkIO1 = psutil.net_io_counters(pernic=False, nowrap=True)
     print(f"Network I/O: Sent={networkIO1.bytes_sent} bytes, Received={networkIO1.bytes_recv} bytes")
-    cpuPercentage = psutil.cpu_percent(interval=1, percpu=False)
+    cpuPercentage = psutil.cpu_percent(interval=4, percpu=False)
     print(f"CPU Percentage: {cpuPercentage}%")
     cpuStats = psutil.cpu_stats()
     print(cpuStats)
@@ -45,5 +45,5 @@ def collectCPUmetrics():
 
     return meta
 
-
+print(collectCPUmetrics())
 

@@ -1,3 +1,4 @@
+from email.mime import audio
 import json
 import uuid
 import wave
@@ -29,6 +30,9 @@ def sintetizar(metrics, carbon):
 
     # is audio supposer to be an array?
     audio = audio / np.max(np.abs(audio))
+
+    fade_samples = int(SR * 0.02)
+    audio[-fade_samples:] *= np.linspace(1, 0, fade_samples)
 
     pcm = (audio * 32767).astype(np.int16)
 
