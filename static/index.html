@@ -6,98 +6,65 @@
 <title>Escuchando a las máquinas que no funcionan</title>
 <style>
   :root{
-    --fondo:#0c0c0d;
-    --texto:#e6e3dd;
-    --tenue:#7a766f;
-    --linea:#26262a;
-    --acento:#c4b998;
+    --fondo:#fafaf8;
+    --texto:#1c1c1c;
+    --tenue:#8a8780;
+    --linea:#e4e2dc;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--fondo);color:var(--texto)}
   body{
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:17px;
-    line-height:1.65;
+    margin:0;background:var(--fondo);color:var(--texto);
+    font:17px/1.65 Georgia,"Times New Roman",serif;
     -webkit-font-smoothing:antialiased;
   }
-  main{max-width:680px;margin:0 auto;padding:12vh 24px 18vh}
+  main{max-width:680px;margin:0 auto;padding:10vh 24px 16vh}
 
-  h1{
-    font-size:1.6rem;
-    font-weight:400;
-    line-height:1.3;
-    margin:0 0 .4em;
-    letter-spacing:.01em;
-  }
-  .sitio{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--tenue);
-    margin:0 0 3.5em;
-  }
+  h1{font-size:1.6rem;font-weight:400;line-height:1.3;margin:0 0 .4em}
+  .sitio,.estado,button,.datos,summary,figcaption{font-family:var(--mono)}
+  .sitio{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tenue);margin:0 0 3em}
+
+  figure{margin:0 0 3em}
+  figure img{width:100%;height:auto;display:block}
+  figcaption{font-size:.7rem;color:var(--tenue);margin-top:.6em}
+
   .obra p{margin:0 0 1.3em}
-  .obra p:last-child{margin-bottom:0}
+  hr{border:0;border-top:1px solid var(--linea);margin:3em 0}
 
-  hr{border:0;border-top:1px solid var(--linea);margin:3.5em 0}
-
-  #panel{min-height:120px}
-  audio{width:100%;margin:.5em 0 1.5em;filter:invert(.92) hue-rotate(180deg)}
-
-  .estado{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:.8rem;
-    color:var(--tenue);
-    letter-spacing:.04em;
-  }
-  .escuchando::after{
-    content:"";
-    animation:puntos 1.4s steps(4,end) infinite;
-  }
-  @keyframes puntos{
-    0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}
-  }
+  audio{width:100%;margin:.5em 0 1.5em}
+  .estado{font-size:.8rem;color:var(--tenue)}
+  .escuchando::after{content:"";animation:puntos 1.4s steps(4,end) infinite}
+  @keyframes puntos{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
 
   button{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:.75rem;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--texto);
-    background:transparent;
-    border:1px solid var(--linea);
-    padding:.75em 1.4em;
-    cursor:pointer;
-    transition:border-color .2s,color .2s;
+    font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--texto);background:#fff;border:1px solid var(--texto);
+    padding:.8em 1.4em;cursor:pointer;width:100%;max-width:280px;
+    transition:background .2s,color .2s;
   }
-  button:hover:not(:disabled){border-color:var(--acento);color:var(--acento)}
+  button:hover:not(:disabled){background:var(--texto);color:#fff}
   button:disabled{opacity:.35;cursor:default}
 
-  .datos{
-    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:.76rem;
-    line-height:2;
-    color:var(--tenue);
-    border-top:1px solid var(--linea);
-    margin-top:3.5em;
-    padding-top:1.5em;
+  .datos{font-size:.76rem;line-height:1.9;color:var(--tenue);margin-top:2.5em}
+  .datos h2{
+    font-size:.7rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--texto);border-bottom:1px solid var(--linea);
+    padding-bottom:.4em;margin:2em 0 .6em;
   }
   .datos div{display:flex;justify-content:space-between;gap:1em}
-  .datos .k{white-space:nowrap}
-  .datos .v{color:var(--texto);text-align:right;word-break:break-all}
-  .datos .nota{
-    display:block;
-    margin-top:1.5em;
-    line-height:1.6;
-    color:var(--tenue);
-  }
-  .silencio{color:var(--acento)}
+  .datos .v{color:var(--texto);text-align:right;word-break:break-word}
+
+  details{margin-top:2.5em}
+  summary{cursor:pointer;font-size:.72rem;color:var(--tenue)}
+  pre{font-size:.7rem;background:#fff;border:1px solid var(--linea);padding:1em;overflow-x:auto}
 
   @media (max-width:520px){
-    main{padding:8vh 20px 12vh}
+    main{padding:6vh 18px 10vh}
     h1{font-size:1.35rem}
     body{font-size:16px}
+    button{max-width:none}
+    .datos div{flex-direction:column;gap:0;margin-bottom:.5em}
+    .datos .v{text-align:left}
   }
 </style>
 </head>
@@ -107,22 +74,19 @@
   <h1>Escuchando a las máquinas que no funcionan</h1>
   <p class="sitio">Andrés González Anzures AASSP</p>
 
-  <!-- ======================================================= -->
-  <!--  TEXTO DE LA OBRA — reemplaza estos párrafos            -->
-  <!-- ======================================================= -->
+  <!-- Imagen: cambia src por la ruta de tu imagen -->
+  <figure>
+    /static/imagen.jpg
+    <figcaption>Mexico Central · Zone 1</figcaption>
+  </figure>
+
   <section class="obra">
-    <p>Esta obra es un experimento de sonificación y representación auditiva de un data center de Microsoft ubicado en el área metropolitana de Querétaro, que inició operaciones el 7 de mayo de 2024 y cuyo nombre clave es Mexico Central (Zone 1). </p>
-
-    <p>La ubicación de este data center es aún información confidencial, así como sus costos y el consumo energético real.  Como cualquier data center la seguridad y acceso al mismo son altamente restringidos. La obra busca a través de la sonificación de distintos parámetros, datos y mediciones hackear de alguna forma esa confidencialidad.</p>
-
-    <p>Para lo anterior creamos una máquina virtual que se ejecuta en el data center, y le pedimos datos que van desde las variaciones en el CPU, la latencia de la conexión, el computo compartido por otros servicios operando en el mismo data center, y la información que la misma empresa da acerca de la máquina virtual. Estos datos son usados como parámetros para crear un sonido dentro de la misma máquina virtual, que después es enviado a quien visite la página web que sirve como interfaz para comunicarse con el servidor. </p>
-
-    <p>El formato de la obra es efímero, puesto que solo se usan 3 pesos y la máquina virtual consumirá ese presupuesto y se destruirá después. Aproximadamente 3 pesos equivalen a tener prendida la máquina virtual dos horas, por lo que la pieza se activará ese tiempo y guardaremos todos los audios generados por quienes visiten la pieza y los guardaremos para su reproducción posterior, pero solo se podrán generar nuevos audios durante el tiempo que alcancen los 3 pesos. </p>
-
+    <p>Esta obra es un experimento de sonificación y representación auditiva de un data center de Microsoft ubicado en el área metropolitana de Querétaro, que inició operaciones el 7 de mayo de 2024 y cuyo nombre clave es Mexico Central (Zone 1).</p>
+    <p>La ubicación de este data center es aún información confidencial, así como sus costos y el consumo energético real. Como cualquier data center la seguridad y acceso al mismo son altamente restringidos. La obra busca a través de la sonificación de distintos parámetros, datos y mediciones hackear de alguna forma esa confidencialidad.</p>
+    <p>Para lo anterior creamos una máquina virtual que se ejecuta en el data center, y le pedimos datos que van desde las variaciones en el CPU, la latencia de la conexión, el computo compartido por otros servicios operando en el mismo data center, y la información que la misma empresa da acerca de la máquina virtual. Estos datos son usados como parámetros para crear un sonido dentro de la misma máquina virtual, que después es enviado a quien visite la página web que sirve como interfaz para comunicarse con el servidor.</p>
+    <p>El formato de la obra es efímero, puesto que solo se usan 3 pesos y la máquina virtual consumirá ese presupuesto y se destruirá después. Aproximadamente 3 pesos equivalen a tener prendida la máquina virtual dos horas, por lo que la pieza se activará ese tiempo y guardaremos todos los audios generados por quienes visiten la pieza y los guardaremos para su reproducción posterior, pero solo se podrán generar nuevos audios durante el tiempo que alcancen los 3 pesos.</p>
     <p>La obra busca pensar un poco en cómo usar la maquinaría tecnológica del capitalismo (máquinas de guerra o máquinas descompuestas) como material para fines distintos de los que están pensadas y cómo infiltrarnos en esta maquinaría. Y también cómo visibilizar (o en este caso sonificar) la expansión de los data center, que anteriormente eran ubicados en países de primer mundo (por la velocidad del internet), pero que cada vez más son ubicados en distintas latitudes donde los recursos aún están disponibles.</p>
-
   </section>
-  <!-- ======================================================= -->
 
   <hr>
 
@@ -134,21 +98,81 @@
 
   <div class="datos" id="datos" hidden></div>
 
+  <details id="crudo-box" hidden>
+    <summary>ver json</summary>
+    <pre id="crudo"></pre>
+  </details>
+
 </main>
 
 <script>
-const boton  = document.getElementById('boton');
-const estado = document.getElementById('estado');
-const audio  = document.getElementById('reproductor');
-const datos  = document.getElementById('datos');
+const boton   = document.getElementById('boton');
+const estado  = document.getElementById('estado');
+const audio   = document.getElementById('reproductor');
+const datos   = document.getElementById('datos');
+const crudo   = document.getElementById('crudo');
+const crudoBox= document.getElementById('crudo-box');
 
-const fila = (k, v, clase='') =>
-  `<div><span class="k">${k}</span><span class="v ${clase}">${v}</span></div>`;
+// Helpers: si el valor no existe, la fila no se pinta
+const vacio = v => v === undefined || v === null || v === '';
+const u     = (v, suf='') => vacio(v) ? undefined : `${v}${suf}`;
+const num   = (v, d=2) => typeof v === 'number' ? v.toFixed(d) : v;
+const fila  = (k, v) => vacio(v) ? '' :
+  `<div><span class="k">${k}</span><span class="v">${v}</span></div>`;
+const seccion = (titulo, filas) => filas ? `<h2>${titulo}</h2>${filas}` : '';
+
+function pintar(m){
+  const met = m.metricas || {};
+  const red = met.network_io || {};
+  const c   = m.carbon_metrics || {};
+  const vm  = m.vm_metadata || {};
+
+  const ratio  = c.monthOverMonthEmissionsChangeRatio;
+  const cambio = typeof ratio === 'number'
+    ? `${ratio >= 0 ? '+' : ''}${(ratio * 100).toFixed(0)}%` : undefined;
+
+  const sistema = [vm.osType, vm.offer].filter(Boolean).join(' · ');
+
+  datos.innerHTML =
+    seccion('Máquina',
+      fila('ubicación',   vm.location) +
+      fila('zona física', vm.physicalZone) +
+      fila('nombre',      vm.name) +
+      fila('tamaño',      vm.vmSize) +
+      fila('sistema',     sistema) +
+      fila('nube',        vm.azEnvironment)
+    ) +
+    seccion('Grabación',
+      fila('id',             m.id) +
+      fila('generado (utc)', m.generado_utc) +
+      fila('duración',       u(m.duracion_audio_s, ' s'))
+    ) +
+    seccion('Métricas',
+      fila('cpu',            u(met.cpu_percentage, ' %')) +
+      fila('frecuencia cpu', u(num(met.cpu_frequencyMhz, 0), ' MHz')) +
+      fila('disco',          u(met.disk_usage, ' %')) +
+      fila('red enviados',   red.sent) +
+      fila('red recibidos',  red.received)
+    ) +
+    seccion('Huella de carbono',
+      fila('último mes',   num(c.latestMonthEmissions, 3)) +
+      fila('mes anterior', num(c.previousMonthEmissions, 3)) +
+      fila('diferencia',   num(c.monthlyEmissionsChangeValue, 3)) +
+      fila('cambio',       cambio)
+    );
+  datos.hidden = false;
+
+  // JSON crudo para pruebas (sin osProfile)
+  const { osProfile, ...vmLimpio } = vm;
+  crudo.textContent = JSON.stringify({ ...m, vm_metadata: vmLimpio }, null, 2);
+  crudoBox.hidden = false;
+}
 
 async function escuchar(){
   boton.disabled = true;
   audio.hidden = true;
   datos.hidden = true;
+  crudoBox.hidden = true;
   estado.textContent = 'Generando grabación';
   estado.classList.add('escuchando');
 
@@ -158,36 +182,17 @@ async function escuchar(){
     if (!r.ok) throw new Error('No se pudo generar la grabación.');
     const m = await r.json();
 
-    audio.src = m.url_audio;
+    // Ajusta '/audios/' a la ruta donde FastAPI sirve los .wav
+    audio.src = m.url_audio || `/audios/${m.archivo}`;
     audio.hidden = false;
 
     estado.classList.remove('escuchando');
     estado.textContent = `Grabación ${m.id}`;
 
-    const robado  = m.cpu_steal_total_s;
-    const vRobado = robado > 0
-      ? `${robado.toFixed(6)} s`
-      : `${robado.toFixed(6)} s — silencio`;
-
-    datos.innerHTML =
-      fila('ventana de medición', `${m.ventana_medicion_s} s`) +
-      fila('duración del audio',  `${m.duracion_audio_s} s`) +
-      fila('síntesis',            `${m.tiempo_sintesis_s} s`) +
-      fila('mediciones',          m.mediciones) +
-      fila('núcleos',             m.nucleos) +
-      fila('cpu ocupada',         `${m.cpu_busy_total_s} s`) +
-      fila('cpu robada',          vRobado, robado > 0 ? '' : 'silencio') +
-      fila('rango',               `${m.freq_hz[0]}–${m.freq_hz[1]} Hz`) +
-      fila('utc',                 m.generado_utc) +
-      `<span class="nota">${
-        robado > 0
-          ? 'Durante la medición, e entregó ciclos de esta máquina a otro lugar.'
-          : 'Durante la medición nadie le quitó ciclos a esta máquina.'
-      }</span>`;
-    datos.hidden = false;
+    pintar(m);
 
     boton.textContent = 'Generar otra grabación';
-    audio.play().catch(() => {});   // si el navegador bloquea el autoplay, quedan los controles
+    audio.play().catch(() => {});
   } catch (e) {
     estado.classList.remove('escuchando');
     estado.textContent = e.message;
